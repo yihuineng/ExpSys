@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sqlGroup name="PhysicalTable">
+	<sql id="listFieldInfo"><![CDATA[
+select
+    fieldCode=a.name,
+    fieldName=cast(e.value as nvarchar(100)),
+    orderFlag=a.column_id,
+    pk=case when exists(select 1 from sys.objects where parent_object_id=a.object_id and type='PK' and name in
+                    (select name from sys.indexes where is_primary_key=1 and index_id in
+						(select indid from sysindexkeys where id=a.object_id and colid=a.column_id)))
+                    then 1 else 0 end,
+    fieldType=b.name,
+    charLength=case when b.name like '%char'
+					then ColumnProperty(a.object_id,a.name,'Precision') else NULL end,
+    notNull=case when a.is_nullable=1 then 0 else 1 end
+from
+    sys.columns a
+left join
+    sys.types b on a.user_type_id=b.user_type_id
+inner join
+    sys.objects c on a.object_id=c.object_id and c.Type='U' and c.Name=?
+left join
+    sys.extended_properties e on e.major_id=c.object_id and e.minor_id=a.Column_id and e.class=1
+	]]></sql>
+    
+    <sql id="listFieldInfo$Oracle"><![CDATA[
+select 
+	CNAME fieldCode
+	,(select COMMENTS from USER_COL_COMMENTS where TABLE_NAME=COL.TNAME and COLUMN_NAME=COL.CNAME) fieldName
+	,COLNO orderFlag
+	,(case when exists(select 1 from USER_CONS_COLUMNS A, USER_CONSTRAINTS B where A.CONSTRAINT_NAME=B.CONSTRAINT_NAME AND B.CONSTRAINT_TYPE='P' and A.TABLE_NAME=COL.TNAME and A.COLUMN_NAME=COL.CNAME) then 1 else 0 end) pk
+	,COLTYPE fieldType
+	,(case when COLTYPE='VARCHAR2' then WIDTH else null end) charLength
+	,(case when NULLS='NOT NULL' then 1 else 0 end) notNull 
+from COL where TNAME='EAJ_FTSY'
+	]]></sql>
+</sqlGroup>
