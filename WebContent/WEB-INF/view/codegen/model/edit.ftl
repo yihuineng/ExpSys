@@ -11,7 +11,7 @@
  * 固定选项
  */
 var chooseValues = [{ "id":0, "fValue": "bigint",         "cValue": "long" }, 
-                    { "id":1, "fValue": "boolean",        "cValue": "bit" },
+                    { "id":1, "fValue": "bit",        "cValue": "boolean" },
                		{ "id":2, "fValue": "float",          "cValue": "double" },
                     { "id":3, "fValue": "datetime",       "cValue": "Date" },
                		{ "id":4, "fValue": "varchar(16)",   "cValue": "String" },
@@ -21,7 +21,7 @@ var chooseValues = [{ "id":0, "fValue": "bigint",         "cValue": "long" },
                		{ "id":8, "fValue": "varchar(max)",  "cValue": "String" }];
                		
 var classNameValues = [{ "id":0, "fValue": "bigint",         "cValue": "long" }, 
-                    { "id":1, "fValue": "boolean",        "cValue": "bit" },
+                    { "id":1, "fValue": "bit",        "cValue": "boolean" },
                		{ "id":2, "fValue": "float",          "cValue": "double" },
                     { "id":3, "fValue": "datetime",       "cValue": "Date" },
                		{ "id":4, "fValue": "varchar(256)",   "cValue": "String" }];
@@ -69,7 +69,7 @@ $(function(){
 	    		row.pk=false;
 	    	}
 	        row.editing = false;  
-	        $('#dg').edatagrid('refreshRow', index);  
+	        $('#dg').edatagrid('refreshRow', index); 
 	    },
 	    onCancelEdit:function(index,row){  
 	        row.editing = false;  
@@ -186,83 +186,6 @@ function boolformat(value, row, index) {
  	}
  	setTimeout(function(){$('#dg').edatagrid('addRow');}, 300);//延时执行，等页面加载完
  }
-//以下是旧的
-/* function addModelField(){
-	var dlg = dialog({
-		id: 'dlgModelField',
-		title: '增加字段定义',
-		url: '${CONTEXT_PATH}/codegen/model/modelFieldDialog',
-		width: '400px',
-		height: '260px',
-		buttons: [
-			{
-				text:'确定',
-				iconCls:'icon-ok',
-				handler: saveModelField
-			},
-			{
-				text:'取消',
-				iconCls:'icon-cancel',
-				handler: function() {
-					dlg.dialog('close');
-				}
-			}
-		],
-	});
-}
-
-
-function editModelField(){
-	var row = $('#dg').edatagrid('getSelected');
-    if (!row){
-    	top.$.messager.alert('消息','请先选择一行数据!','info');
-    	return;
-    }
-    
-	var dlg = dialog({
-		id: 'dlgModelField',
-		title: '修改字段定义',
-		url: '${CONTEXT_PATH}/codegen/model/modelFieldDialog?id='+row.id,
-		width: '400px',
-		height: '260px',
-		buttons: [
-			{
-				text: '确定',
-				iconCls: 'icon-ok',
-				handler: saveModelField
-			},
-			{
-				text:'取消',
-				iconCls:'icon-cancel',
-				handler: function() {
-					dlg.dialog('close');
-				}
-			}
-		],
-	});
-}
-    
-function saveModelField(){
-    var fm = top.$('#dlgwin-dlgModelField')[0].contentWindow.$("#fm");
-    fm.form('submit',{
-        url: '${CONTEXT_PATH}/codegen/model/saveModelField',
-        onSubmit: function(){
-            return fm.form('validate');
-        },
-        success: function(result){
-            var result = $.parseJSON(result);
-            if (result.status<=0){
-                $.messager.show({
-                    title: '错误',
-                    msg: result.message
-                });
-            } else {
-                top.$('#dlgModelField').dialog('close');        // close the dialog
-                $('#dg').edatagrid('reload');    // reload the user data
-            }
-        }
-    });
-} */
 </script>
 </head>
 <body> 
@@ -314,7 +237,6 @@ function saveModelField(){
      <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="jvascript:addrow()">新增字段</a>
      <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="jvascript:$('#dg').edatagrid('destroyRow')">删除字段</a>
      <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-database-export" plain="true" onclick="regenModelDefAndJavaCode()">根据物理表刷新模型</a>
-     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-database-import" plain="true" onclick="">根据模型刷新物理表</a>
      <!-- <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-save" plain="false" onclick="jvascript:$('#dg').edatagrid('saveRow')">保存行</a>
      <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-undo" plain="false" onclick="jvascript:$('#dg').edatagrid('cancelRow')">撤销行</a> -->
      <!-- <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" plain="false" onclick="jvascript:updatedatabase('${modelCode}')">同步该表到数据库</a>

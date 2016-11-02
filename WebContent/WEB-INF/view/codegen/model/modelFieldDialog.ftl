@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="pragma" content="no-cache">
-<title>企业协同平台</title>
+<title>协同平台</title>
 <#include "../../common/resources.inc.ftl">
 </head>
 <body>

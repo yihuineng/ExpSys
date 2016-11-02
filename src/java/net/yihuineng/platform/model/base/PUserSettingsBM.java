@@ -1,9 +1,7 @@
 package net.yihuineng.platform.model.base;
 
-import java.util.Map;
-
 import net.yihuineng.framework.data.Model;
-
+import java.util.Map;
 import java.util.HashMap;
 
 /**
@@ -32,42 +30,42 @@ public abstract class PUserSettingsBM<M extends Model<M>> extends Model<M> {
 	 * Getter and Setter
 	 *----------------------------------------------------------------------*/
 	/**
-	 * @return the userCode
+	 * @return the null
 	 */
 	public String getUserCode() {
 		return getStr("userCode");
 	}
 
 	/**
-	 * @param userCode the userCode to set
+	 * @param null the null to set
 	 */
 	public void setUserCode(String userCode) {
 		set("userCode", userCode);
 	}
 	
 	/**
-	 * @return the configName
+	 * @return the null
 	 */
 	public String getConfigName() {
 		return getStr("configName");
 	}
 
 	/**
-	 * @param configName the configName to set
+	 * @param null the null to set
 	 */
 	public void setConfigName(String configName) {
 		set("configName", configName);
 	}
 	
 	/**
-	 * @return the configValue
+	 * @return the null
 	 */
 	public String getConfigValue() {
 		return getStr("configValue");
 	}
 
 	/**
-	 * @param configValue the configValue to set
+	 * @param null the null to set
 	 */
 	public void setConfigValue(String configValue) {
 		set("configValue", configValue);

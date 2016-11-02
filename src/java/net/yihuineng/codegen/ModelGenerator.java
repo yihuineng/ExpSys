@@ -37,7 +37,7 @@ public class ModelGenerator extends AbstractCodeGenerator {
 
 		imports.add("java.util.Map");
 		imports.add("java.util.HashMap");
-		imports.add("net.pubone.framework.data.Model");
+		imports.add("net.yihuineng.framework.data.Model");
 
 		List<Record> fieldList = Db.find(SqlKit.sql("PhysicalTable.listFieldInfo"), tableName);
 		for (Record record : fieldList) {

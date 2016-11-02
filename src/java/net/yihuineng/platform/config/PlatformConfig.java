@@ -65,7 +65,7 @@ public class PlatformConfig extends JFinalConfig {
 	public void configRoute(Routes routes) {
 		routes.add("/", IndexController.class);
 		AutoBindRoutes autoBindRoutes = new AutoBindRoutes();
-		autoBindRoutes.addIncludePaths("net/yihuineng/codegen/", "net/yihuineng/platform/");
+		autoBindRoutes.addIncludePaths("net/yihuineng/codegen/", "net/yihuineng/platform/","net/yihuineng/app/");
 		routes.add(autoBindRoutes);
 	}
 

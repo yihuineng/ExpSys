@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="pragma" content="no-cache">
-<title>浙江警察学院后台</title>
+<title>KM系统管理后台</title>
 <#include "*/common/resources.inc.ftl">
 <style type="text/css">
 #header { background:#dae4ed url(${CONTEXT_PATH}/platform/images/topBlue.png) repeat-x right top; height: 60px; color:#cfdee5;}
