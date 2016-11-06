@@ -21,9 +21,12 @@ public abstract class KM_Q_ABM<M extends Model<M>> extends Model<M> {
 		fieldInfoMap.put("ID", "FieldType未实现");
 		fieldInfoMap.put("QContent", "FieldType未实现");
 		fieldInfoMap.put("AContent", "FieldType未实现");
-		fieldInfoMap.put("QLables", "FieldType未实现");
+		fieldInfoMap.put("QLabels", "FieldType未实现");
 		fieldInfoMap.put("AddTime", "FieldType未实现");
 		fieldInfoMap.put("AddUser", "FieldType未实现");
+		fieldInfoMap.put("IsStable", "FieldType未实现");
+		fieldInfoMap.put("EditTime", "FieldType未实现");
+		fieldInfoMap.put("EditUser", "FieldType未实现");
 	}
 		
 	protected Map<String, String> getFieldInfoMap() {
@@ -82,15 +85,15 @@ public abstract class KM_Q_ABM<M extends Model<M>> extends Model<M> {
 	/**
 	 * @return the 问题标签
 	 */
-	public String getQLables() {
-		return getStr("QLables");
+	public String getQLabels() {
+		return getStr("QLabels");
 	}
 
 	/**
 	 * @param 问题标签 the 问题标签 to set
 	 */
-	public void setQLables(String qLables) {
-		set("QLables", qLables);
+	public void setQLabels(String qLabels) {
+		set("QLabels", qLabels);
 	}
 	
 	/**
@@ -123,6 +126,52 @@ public abstract class KM_Q_ABM<M extends Model<M>> extends Model<M> {
 	 */
 	public void setAddUser(String addUser) {
 		set("AddUser", addUser);
+	}
+	
+	/**
+	 * @return the 是否稳定
+	 */
+	public boolean getIsStable() {
+		return getBoolean("IsStable");
+	}
+
+	/**
+	 * @param 是否稳定 the 是否稳定 to set
+	 */
+	public void setIsStable(boolean isStable) {
+		set("IsStable", isStable);
+	}
+	
+	/**
+	 * @return the 修改时间
+	 */
+	public Date getEditTime() {
+		return getDate("EditTime");
+	}
+
+	/**
+	 * @param 修改时间 the 修改时间 to set
+	 */
+	public void setEditTime(Date editTime) {
+		if (editTime == null) {
+			set("EditTime", null);
+		} else {
+			set("EditTime", new java.sql.Date(editTime.getTime()));
+		}
+	}
+	
+	/**
+	 * @return the 修改用户
+	 */
+	public String getEditUser() {
+		return getStr("EditUser");
+	}
+
+	/**
+	 * @param 修改用户 the 修改用户 to set
+	 */
+	public void setEditUser(String editUser) {
+		set("EditUser", editUser);
 	}
 	
 }

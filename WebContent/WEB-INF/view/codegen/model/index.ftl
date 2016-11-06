@@ -214,7 +214,7 @@ function isInFileformat(value, row, index) {
 			iconCls="icon-remove" plain="true" onclick="doDelete()">删除</a> <a
 			href="javascript:void(0)" class="easyui-linkbutton"
 			iconCls="icon-reload" plain="false"
-			onclick="jvascript:createAllMissingTable()">newModel->phy&code</a>
+			onclick="jvascript:createAllMissingTable()">Model(new)->phy&code</a>
 		<div style="float: right; margin: 2px 5px;">
 			<input id="userSearchBox" class="easyui-searchbox"
 				data-options="prompt:'模型代码、名称、包名',searcher:keywordSearcher"
@@ -243,7 +243,7 @@ function isInFileformat(value, row, index) {
 </body>
 <div id="mm" class="easyui-menu" style="width: 150px;">
 	<div onClick="createTable()" data-options="iconCls:'icon-add'">model->phy&code</div>
-	<div onClick="genModel4Java()" data-options="iconCls:'icon-add'">model->code</div>
+	<div onClick="genModel4Java()" data-options="iconCls:'icon-add'">phy->code</div>
 	<div onClick="regenModelDefAndJavaCode()" data-options="iconCls:'icon-reload'">phy->model&code</div>
 </div>
 </html>

@@ -7,7 +7,7 @@ import java.util.HashMap;
 /**
  * 该类文件由代码生成工具自动生成，请勿手工修改。
  */
-public abstract class KM_LABLEBM<M extends Model<M>> extends Model<M> {
+public abstract class KM_LABELBM<M extends Model<M>> extends Model<M> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -18,8 +18,8 @@ public abstract class KM_LABLEBM<M extends Model<M>> extends Model<M> {
 	private static final Map<String, String> fieldInfoMap = new HashMap<String, String>();
 	static {
 		fieldInfoMap.put("ID", "FieldType未实现");
-		fieldInfoMap.put("LableName", "FieldType未实现");
-		fieldInfoMap.put("FLables", "FieldType未实现");
+		fieldInfoMap.put("LabelName", "FieldType未实现");
+		fieldInfoMap.put("FLabels", "FieldType未实现");
 	}
 		
 	protected Map<String, String> getFieldInfoMap() {
@@ -30,7 +30,7 @@ public abstract class KM_LABLEBM<M extends Model<M>> extends Model<M> {
 	 * Getter and Setter
 	 *----------------------------------------------------------------------*/
 	/**
-	 * @return the 编号
+	 * @return the ID
 	 */
 	public long getID() {
 		Long v = getLong("ID");
@@ -41,38 +41,38 @@ public abstract class KM_LABLEBM<M extends Model<M>> extends Model<M> {
 	}
 
 	/**
-	 * @param 编号 the 编号 to set
+	 * @param ID the ID to set
 	 */
 	public void setID(long id) {
 		set("ID", id);
 	}
 	
 	/**
-	 * @return the 名称
+	 * @return the 标签名称
 	 */
-	public String getLableName() {
-		return getStr("LableName");
+	public String getLabelName() {
+		return getStr("LabelName");
 	}
 
 	/**
-	 * @param 名称 the 名称 to set
+	 * @param 标签名称 the 标签名称 to set
 	 */
-	public void setLableName(String lableName) {
-		set("LableName", lableName);
+	public void setLabelName(String labelName) {
+		set("LabelName", labelName);
 	}
 	
 	/**
-	 * @return the 直系父标签
+	 * @return the 父标签
 	 */
-	public String getFLables() {
-		return getStr("FLables");
+	public String getFLabels() {
+		return getStr("FLabels");
 	}
 
 	/**
-	 * @param 直系父标签 the 直系父标签 to set
+	 * @param 父标签 the 父标签 to set
 	 */
-	public void setFLables(String fLables) {
-		set("FLables", fLables);
+	public void setFLabels(String fLabels) {
+		set("FLabels", fLabels);
 	}
 	
 }
