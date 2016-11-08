@@ -20,6 +20,8 @@ import net.yihuineng.platform.id.IdKit;
 public class ApiController extends EasyUIController {
 
 	public void index() {
+		String project = getPara("project");
+		setAttr("project", project);
 	}
 
 	/**
@@ -35,7 +37,7 @@ public class ApiController extends EasyUIController {
 		Qb qb = new Qb(" from PAPI where project=? ",project);
 		if (StrKit.isNotEmpty(keyword)) {
 			qb.append(" and (apiUrl like ? or apiName like ? )", Qb.wrapLike(keyword),
-					Qb.wrapLike(keyword), Qb.wrapLike(keyword));
+					Qb.wrapLike(keyword));
 		}
 		qb.append(getOrderBy("id"));
 

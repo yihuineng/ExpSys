@@ -42,6 +42,6 @@ public class PPermissionModel extends PPermissionBM<PPermissionModel> implements
 	}
 	
 	public List<PPermissionModel> findChildMenus(String parentId) {
-		return dao.find("select * from PPermission where Type='url' and Visiable=1 and parentId=?", parentId);
+		return dao.find("select * from PPermission where Type='menu' and Visiable=1 and parentId=?", parentId);
 	}
 }

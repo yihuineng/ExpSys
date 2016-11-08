@@ -86,24 +86,21 @@ public abstract class EasyUIController extends Controller {
 	}
 	
 	protected <M extends Model<M>> List<M> buildTree(List<M> list) {
-		return buildTree(list, "0");
+		return buildTree(list, "0");//root 0
 	}
 	
 	protected <M extends Model<M>> List<M> buildTree(List<M> list, String parentId) {
 		List<M> nodes = Lists.newArrayList();
-		List<M> newList = Lists.newArrayList(list);
-		for (int i = 0; i < newList.size(); i++) {
-			M model = newList.get(i);
+		for (int i = 0; i < list.size(); i++) {
+			M model = list.get(i);
 			if (model instanceof BasicTreeModelIF<?>) {//判断是否是treegrid的数据
 				@SuppressWarnings("unchecked")
 				EasyUITreeModelIF<M> treeModel = (EasyUITreeModelIF<M>) model;
-
 				if (treeModel.treeParentId().equalsIgnoreCase(parentId)) {
-					newList.remove(model);
+					list.remove(model);
 					i--;
-
 					model = treeModel.treeEasyUINodeAttrs();
-					List<M> childNodes = buildTree(newList, treeModel.treeId());
+					List<M> childNodes = buildTree(list, treeModel.treeId());
 					if (childNodes != null && childNodes.size() > 0) {
 						treeModel.treeSetChildren(childNodes);
 					}

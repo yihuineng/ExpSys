@@ -41,7 +41,7 @@ function doSave() {
 		return false;
 	}
 	var dc = top.$dw.$("#fm").serializeJSON();
-	$.post("${CONTEXT_PATH}/app/api/doSave?project=km", dc, function(response){
+	$.post("${CONTEXT_PATH}/app/api/doSave?project=${project}", dc, function(response){
 		if (response.status<=0){
             top.$.messager.alert('错误', response.message);
         } else {
@@ -67,7 +67,7 @@ function doDelete() {
 	});
 	top.$.messager.confirm('确认', '确认删除?', function(r) {
 		if (r) {
-			$.post('${CONTEXT_PATH}/app/api/doDelete?project=km', {
+			$.post('${CONTEXT_PATH}/app/api/doDelete?project=${project}', {
 				idArr : idArr
 			}, function(response) {
 				top.$.messager.show({
@@ -78,7 +78,6 @@ function doDelete() {
 			});
 		}
 	});
-
 }
 
 function keywordSearcher(value,name) {
@@ -108,7 +107,7 @@ function showTitle(value, row, index) {
 				style="width: 180px" />
 		</div>
 	</div>
-	<table id="dg" class="easyui-datagrid" url="${CONTEXT_PATH}/app/api/dgApi?project=km" toolbar="#toolbar" checkOnSelect="false" selectOnCheck="false">
+	<table id="dg" class="easyui-datagrid" url="${CONTEXT_PATH}/app/api/dgApi?project=${project}" toolbar="#toolbar" checkOnSelect="false" selectOnCheck="false">
 		<thead>
 			<tr>
 				<th field="id" checkbox="true">选择</th>
